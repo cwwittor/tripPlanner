@@ -5,7 +5,7 @@ export default {
     EventCard,
   },
   created() {
-    this.$store.dispatch("fetchEvents").catch((error) => {
+    this.$store.dispatch("fetchParks").catch((error) => {
       this.$router.push({
         name: "ErrorDisplay",
         params: { error: error },
@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     events() {
-      return this.$store.state.events; //change based on naming conventions in store
+      return this.$store.state.parks;
     },
   },
 };
@@ -22,7 +22,7 @@ export default {
 
 <template>
   <h1>National Parks Planner</h1>
-  <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+  <div class="parks">
+    <EventCard v-for="park in parks" :key="park.id" :park="park" />
   </div>
 </template>
