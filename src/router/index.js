@@ -1,10 +1,18 @@
 import { createRouter, createWebHistory } from "vue-router";
+import ParkList from "../views/ParkList";
+import ErrorDisplay from "../views/ErrorDisplay";
 
 const routes = [
   {
-    //path: '/',
-    //name: 'EventList',
-    //component:
+    path: "/",
+    name: "ParkList",
+    component: ParkList,
+  },
+  {
+    path: "/error/:error",
+    name: "ErrorDisplay",
+    props: true,
+    component: ErrorDisplay,
   },
 ];
 

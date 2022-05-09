@@ -2,7 +2,7 @@
 import ParkCard from "../components/ParkCard.vue";
 export default {
   components: {
-    EventCard,
+    ParkCard,
   },
   created() {
     this.$store.dispatch("fetchParks").catch((error) => {
@@ -23,6 +23,6 @@ export default {
 <template>
   <h1>National Parks Planner</h1>
   <div class="parks">
-    <EventCard v-for="park in parks" :key="park.id" :park="park" />
+    <ParkCard v-for="park in parks" :key="park.id" :park="park" />
   </div>
 </template>
