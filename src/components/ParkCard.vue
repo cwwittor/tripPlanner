@@ -12,16 +12,16 @@
           <p class="text-gray-700 text-base">{{ park.addresses[0].city }}</p>
         </div>
         <div class="px-6 pt-4 pb-2">
-          <!--   <routler-link
+          <router-link
             class="park-link"
-            :to="{ name: 'ParkDetails', params: { id: park.id } }"
-          > -->
-          <button
-            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-gray-100"
+            :to="{ name: 'ParkDetails', params: { id: park.parkCode } }"
           >
-            View More
-          </button>
-          <!-- </routler-link> -->
+            <button
+              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-gray-100"
+            >
+              View More
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
