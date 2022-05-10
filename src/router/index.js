@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ParkList from "../views/ParkList";
 import ErrorDisplay from "../views/ErrorDisplay";
+//import EventDetails from "../views/EventDetails";
 
 const routes = [
   {
@@ -8,6 +9,12 @@ const routes = [
     name: "ParkList",
     component: ParkList,
   },
+  /**{
+    path: "/park/:id",
+    name: "ParkDetails",
+    props: true,
+    component: EventDetails,
+  },*/
   {
     path: "/error/:error",
     name: "ErrorDisplay",

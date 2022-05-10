@@ -1,17 +1,11 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app">
+    <div id="nav">
+      <router-link :to="{ name: 'ParkList' }">Parks</router-link>
+    </div>
+    <router-view />
+  </div>
 </template>
-
-<script>
-import HelloWorld from "./components/ParkCard.vue";
-
-export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-};
-</script>
 
 <style>
 #app {

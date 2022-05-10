@@ -1,12 +1,14 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL:
-    "https://developer.nps.gov/api/v1/parks?&API_KEY=Ernt9S3tcAQD6ZL3eZviVgGKVHY5X1hdhTh0Thru",
+  baseURL: "https://developer.nps.gov/api/v1",
   withCredentials: false,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
+  },
+  params: {
+    API_KEY: "Ernt9S3tcAQD6ZL3eZviVgGKVHY5X1hdhTh0Thru",
   },
 });
 
@@ -16,5 +18,8 @@ export default {
   },
   getPark(id) {
     return apiClient.get("/parks" + id);
+  },
+  postPark(park) {
+    return apiClient.post("/parks", park);
   },
 };
