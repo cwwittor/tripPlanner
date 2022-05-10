@@ -17,7 +17,7 @@ export default {
     return apiClient.get("/parks");
   },
   getPark(id) {
-    return apiClient.get("/parks" + id);
+    return apiClient.get("/parks", { params: { parkCode: id } });
   },
   postPark(park) {
     return apiClient.post("/parks", park);

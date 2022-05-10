@@ -15,7 +15,7 @@ export const useParkStore = defineStore("ParkStore", {
     fetchPark(id) {
       return ParkService.getPark(id)
         .then((response) => {
-          this.park = response.data;
+          this.park = response.data.data[0];
         })
         .catch((error) => {
           throw error;
