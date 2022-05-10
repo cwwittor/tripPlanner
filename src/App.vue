@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link :to="{ name: 'ParkList' }">Parks</router-link>
+      <router-link
+        :to="{ name: 'ParkList' }"
+        class="inline-block rounded-full px-3 py-1 text-m font-semibold hover:bg-gray-100"
+        >Parks</router-link
+      >
     </div>
     <router-view />
   </div>
