@@ -60,7 +60,7 @@ onMounted(() => {
       </button>
     </div>
     <img
-      class="lg:w-1/2 lg:h-screen lg:relative object-cover object-right-bottom w-screen h-1/2"
+      class="lg:w-1/2 lg:h-screen lg:relative object-cover object-right-bottom"
       :src="parkStore.park.images[0].url"
       alt="Picture of the National Park at ..."
     />
