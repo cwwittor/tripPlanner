@@ -1,11 +1,13 @@
 <template>
-  <h1>National Parks Planner</h1>
-  <div class="parks">
-    <ParkCard
-      v-for="park in parkStore.parks.data"
-      :key="park.id"
-      :park="park"
-    />
+  <div>
+    <h1>National Parks Planner</h1>
+    <div class="parks">
+      <ParkCard
+        v-for="park in parkStore.parks.data"
+        :key="park.id"
+        :park="park"
+      />
+    </div>
   </div>
 </template>
 

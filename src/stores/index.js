@@ -5,7 +5,7 @@ export const useParkStore = defineStore("ParkStore", {
   state() {
     return {
       parks: [],
-      park: {},
+      park: null,
     };
   },
   getters: {
@@ -15,7 +15,7 @@ export const useParkStore = defineStore("ParkStore", {
     fetchPark(id) {
       return ParkService.getPark(id)
         .then((response) => {
-          this.park = response.data.data[0];
+          this.park = response.data;
         })
         .catch((error) => {
           throw error;

@@ -17,7 +17,12 @@ export default {
     return apiClient.get("/parks");
   },
   getPark(id) {
-    return apiClient.get("/parks", { params: { parkCode: id } });
+    return apiClient.get("/parks", {
+      params: { parkCode: id },
+      transformResponse: axios.defaults.transformResponse.concat(
+        (data) => data.data[0]
+      ),
+    });
   },
   postPark(park) {
     return apiClient.post("/parks", park);

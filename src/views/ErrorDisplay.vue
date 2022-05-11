@@ -5,6 +5,8 @@ export default {
 </script>
 
 <template>
-  <h4>There seems to have been an error:</h4>
-  <p>{{ error }}</p>
+  <div>
+    <h4>There seems to have been an error:</h4>
+    <p>{{ error }}</p>
+  </div>
 </template>
