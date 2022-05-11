@@ -1,9 +1,9 @@
 <template>
   <div class="hello">
-    <div class="max-w-sm">
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div class="max-w-sm flex">
+      <div class="inline-block max-w-sm rounded overflow-hidden shadow-lg">
         <img
-          class="w-full logoImg"
+          class="w-full w-96 h-64"
           :src="park.images[0].url"
           alt="Picture of the National Park at ..."
         />
@@ -38,25 +38,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.logoImg {
-  max-height: 300pxpx;
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

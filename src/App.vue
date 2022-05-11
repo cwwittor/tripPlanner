@@ -1,12 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link
-        :to="{ name: 'ParkList' }"
-        class="inline-block rounded-full px-3 py-1 text-m font-semibold hover:bg-gray-100"
-        >Parks</router-link
-      >
-    </div>
+    <div id="nav"></div>
     <router-view />
   </div>
 </template>
@@ -18,6 +12,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
