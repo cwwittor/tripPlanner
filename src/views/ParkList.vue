@@ -17,13 +17,34 @@
         View Planner
       </button>
     </div>
-    <div class="grid lg:grid-cols-4 grid-cols-1">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
       <ParkCard
         v-for="park in parkStore.parks.data"
         :key="park.id"
         :park="park"
       />
     </div>
+  </div>
+  <div id="MorePages">
+    <p>
+      Page
+      <button
+        onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
+      >
+        1</button
+      >,
+      <button
+        onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
+      >
+        2</button
+      >,
+      <button
+        onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
+      >
+        3
+      </button>
+      , ...
+    </p>
   </div>
 </template>
 
