@@ -16,6 +16,18 @@ onMounted(() => {
 </script>
 
 <template>
+  <div id="header-bar" class="lg:w-screen lg:h-14 h-20 bg-black">
+    <router-link
+      :to="{ name: 'ParkList' }"
+      class="inline-block rounded-full px-3 py-1 text-m font-semibold text-white hover:bg-gray-500 mt-4"
+      >Parks</router-link
+    >
+    <button
+      class="inline-block bg-gray-400 rounded-full font-semibold text-white hover:bg-gray-300 lg:mt-4 lg:right-0 lg:text-sm lg:absolute lg:mr-8 lg:px-3 lg:py-1 relative content-center text-lg mt-5 px-6 py-2"
+    >
+      View Planner
+    </button>
+  </div>
   <div class="flex" v-if="parkStore.park">
     <div
       class="bg-slate-200 lg:w-1/2 lg:h-screen lg:relative absolute bottom-0 w-screen h-1/2"
