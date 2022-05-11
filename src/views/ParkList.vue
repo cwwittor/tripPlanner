@@ -22,6 +22,7 @@
         v-for="park in parkStore.parks.data"
         :key="park.id"
         :park="park"
+        class="justify-self-center"
       />
     </div>
   </div>
