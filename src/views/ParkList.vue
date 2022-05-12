@@ -17,7 +17,9 @@
         <router-link :to="{ name: 'ParkPlanner' }"> View Planner </router-link>
       </button>
     </div>
-    <div class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-12 p-12">
+    <div
+      class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-12 p-12 items-stretch"
+    >
       <ParkCard
         v-for="park in parkStore.parks.data"
         :key="park.id"
@@ -29,22 +31,12 @@
   <div id="MorePages">
     <p>
       Page
-      <button
-        onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
-      >
-        1</button
+      <router-link :to="{ name: 'ParkListPage', params: { page: 2 } }">
+        2 </router-link
       >,
-      <button
-        onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
-      >
-        2</button
-      >,
-      <button
-        onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
-      >
-        3
-      </button>
-      , ...
+      <router-link :to="{ name: 'ParkListPage', params: { page: 4 } }">
+        4 </router-link
+      >...
     </p>
   </div>
 </template>
@@ -52,18 +44,23 @@
 <script setup>
 import ParkCard from "../components/ParkCard.vue";
 import { useParkStore } from "../stores";
-import { onMounted } from "vue";
+import { onMounted, defineProps } from "vue";
 
 const parkStore = useParkStore();
+const props = defineProps(["page"]);
 
 onMounted(() => {
-  parkStore.fetchParks().catch((error) => {
+  parkStore.fetchParks(props.page).catch((error) => {
     this.$router.push({
       name: "ErrorDisplay",
       params: { error: error },
     });
   });
 });
+
+// shortPage(currentPage) => {
+//   let pagesNeeded = Math.round(totalPages/)*
+// }
 </script>
 
 <style scoped></style>
