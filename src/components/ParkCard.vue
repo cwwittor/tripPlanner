@@ -1,17 +1,18 @@
 <template>
-  <div class="hello">
-    <div class="max-w-sm flex">
-      <div class="inline-block max-w-sm rounded overflow-hidden shadow-lg mb-5">
+  <div class="">
+    <div class="">
+      <div class="rounded overflow-hidden shadow-lg">
         <img
-          class="w-full w-96 h-64"
-          :src="park.images[0].url"
+          class="w-full aspect-square object-cover"
+          :src="park.images[0].url + '?w=500'"
           alt="Picture of the National Park at ..."
         />
-        <div class="w-96 h-30">
-          <div class="">
+        <div class="">
+          <div class="px-4">
             <div class="font-bold text-xl truncate mt-2">{{ park.name }}</div>
             <p class="text-gray-700 text-base">
-              Location: {{ park.addresses[0].city }}
+              {{ park.addresses[0].city }},
+              {{ park.addresses[0].stateCode }}
             </p>
           </div>
           <div class="px-6 pt-3 pb-2">

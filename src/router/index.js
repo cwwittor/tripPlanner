@@ -2,11 +2,17 @@ import { createRouter, createWebHistory } from "vue-router";
 import ParkList from "../views/ParkList";
 import ErrorDisplay from "../views/ErrorDisplay";
 import ParkDetails from "../views/ParkDetails";
+import ParkPlanner from "../views/ParkPlanner";
 
 const routes = [
   {
     path: "/",
     name: "ParkList",
+    component: ParkList,
+  },
+  {
+    path: "/:id",
+    name: "ParkListPage",
     component: ParkList,
   },
   {
@@ -20,6 +26,12 @@ const routes = [
     name: "ErrorDisplay",
     props: true,
     component: ErrorDisplay,
+  },
+  {
+    path: "/park/planner",
+    name: "ParkPlanner",
+    props: true,
+    component: ParkPlanner,
   },
 ];
 
