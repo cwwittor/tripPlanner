@@ -7,7 +7,9 @@
     />
     <div class="">
       <div class="px-4">
-        <div class="font-bold text-xl mt-2">{{ park.name }}</div>
+        <div class="font-bold text-xl mt-2">
+          {{ park.name }}
+        </div>
         <p class="text-gray-700 text-base">
           {{ park.addresses[0].city }},
           {{ park.addresses[0].stateCode }}

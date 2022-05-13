@@ -28,21 +28,18 @@
       />
     </div>
   </div>
-  <div id="MorePages">
-    <p>
-      Page
-      <router-link :to="{ name: 'ParkListPage', params: { page: 2 } }">
-        2 </router-link
-      >,
-      <router-link :to="{ name: 'ParkListPage', params: { page: 4 } }">
-        4 </router-link
-      >...
-    </p>
+  <div>
+    <PaginationBar
+      :totalPages="Math.ceil(parkStore.parks.total / 50)"
+      :perPage="50"
+      :currentPage="Math.ceil(parkStore.parks.start / 50) + 1"
+    />
   </div>
 </template>
 
 <script setup>
 import ParkCard from "../components/ParkCard.vue";
+import PaginationBar from "../components/PaginationBar.vue";
 import { useParkStore } from "../stores";
 import { onMounted, defineProps } from "vue";
 
@@ -58,9 +55,21 @@ onMounted(() => {
   });
 });
 
-// shortPage(currentPage) => {
-//   let pagesNeeded = Math.round(totalPages/)*
-// }
+// getBottomBar((currentPage, totalPages) => {
+//   document.getElementById("more_pages").innerHTML = "";
+//   let pageBar = "Page";
+//   let pageNumber = Math.ceil(totalPages / 50);
+
+//   for (let i = 1; i <= pageNumber; i++) {
+//     if (currentPage === i) {
+//       pageBar += ` ${i},`;
+//     } else {
+//       pageBar += `<router-link :to="{ name: 'ParkListPage', params: { page: ${i} } }"> ${i}</router-link>,`;
+//     }
+//   }
+
+//   document.getElementById("more_pages").innerHTML = pageBar;
+// });
 </script>
 
 <style scoped></style>
