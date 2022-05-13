@@ -13,8 +13,17 @@ const apiClient = axios.create({
 });
 
 export default {
-  getParks() {
-    return apiClient.get("/parks");
+  getParks(page = 1) {
+    return apiClient.get("/parks", {
+      params: { start: (page - 1) * 50 },
+      transformResponse: axios.defaults.transformResponse.concat((data) =>
+        Object.assign(data, {
+          limit: parseInt(data.limit),
+          start: parseInt(data.start),
+          total: parseInt(data.total),
+        })
+      ),
+    });
   },
   getPark(id) {
     return apiClient.get("/parks", {

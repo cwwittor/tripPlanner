@@ -11,8 +11,9 @@ const routes = [
     component: ParkList,
   },
   {
-    path: "/:id",
+    path: "/:page",
     name: "ParkListPage",
+    props: true,
     component: ParkList,
   },
   {

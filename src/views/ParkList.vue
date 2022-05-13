@@ -17,7 +17,9 @@
         <router-link :to="{ name: 'ParkPlanner' }"> View Planner </router-link>
       </button>
     </div>
-    <div class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-12 p-12">
+    <div
+      class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-12 p-12 items-stretch"
+    >
       <ParkCard
         v-for="park in parkStore.parks.data"
         :key="park.id"
@@ -26,44 +28,48 @@
       />
     </div>
   </div>
-  <div id="MorePages">
-    <p>
-      Page
-      <button
-        onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
-      >
-        1</button
-      >,
-      <button
-        onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
-      >
-        2</button
-      >,
-      <button
-        onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
-      >
-        3
-      </button>
-      , ...
-    </p>
+  <div>
+    <PaginationBar
+      :totalPages="Math.ceil(parkStore.parks.total / 50)"
+      :perPage="50"
+      :currentPage="Math.ceil(parkStore.parks.start / 50) + 1"
+    />
   </div>
 </template>
 
 <script setup>
 import ParkCard from "../components/ParkCard.vue";
+import PaginationBar from "../components/PaginationBar.vue";
 import { useParkStore } from "../stores";
-import { onMounted } from "vue";
+import { onMounted, defineProps } from "vue";
 
 const parkStore = useParkStore();
+const props = defineProps(["page"]);
 
 onMounted(() => {
-  parkStore.fetchParks().catch((error) => {
+  parkStore.fetchParks(props.page).catch((error) => {
     this.$router.push({
       name: "ErrorDisplay",
       params: { error: error },
     });
   });
 });
+
+// getBottomBar((currentPage, totalPages) => {
+//   document.getElementById("more_pages").innerHTML = "";
+//   let pageBar = "Page";
+//   let pageNumber = Math.ceil(totalPages / 50);
+
+//   for (let i = 1; i <= pageNumber; i++) {
+//     if (currentPage === i) {
+//       pageBar += ` ${i},`;
+//     } else {
+//       pageBar += `<router-link :to="{ name: 'ParkListPage', params: { page: ${i} } }"> ${i}</router-link>,`;
+//     }
+//   }
+
+//   document.getElementById("more_pages").innerHTML = pageBar;
+// });
 </script>
 
 <style scoped></style>

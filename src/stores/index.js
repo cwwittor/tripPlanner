@@ -6,6 +6,7 @@ export const useParkStore = defineStore("ParkStore", {
     return {
       parks: [],
       park: null,
+      planparks: [],
     };
   },
   getters: {
@@ -21,10 +22,19 @@ export const useParkStore = defineStore("ParkStore", {
           throw error;
         });
     },
-    fetchParks() {
-      return ParkService.getParks()
+    fetchParks(page) {
+      return ParkService.getParks(page)
         .then((response) => {
           this.parks = response.data;
+        })
+        .catch((error) => {
+          throw error;
+        });
+    },
+    addPark(park) {
+      return ParkService.postPark(park)
+        .then(() => {
+          this.planparks.push(park);
         })
         .catch((error) => {
           throw error;
